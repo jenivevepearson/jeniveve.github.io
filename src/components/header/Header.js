@@ -28,9 +28,7 @@ function Header() {
     <Headroom>
       <header className={isDark ? "dark-menu header" : "header"}>
         <a href="/" className="logo">
-          <span className="grey-color"> &lt;</span>
           <span className="logo-name">{greeting.username}</span>
-          <span className="grey-color">/&gt;</span>
         </a>
         <input className="menu-btn" type="checkbox" id="menu-btn" />
         <label
@@ -43,12 +41,12 @@ function Header() {
         <ul className={isDark ? "dark-menu menu" : "menu"}>
           {viewSkills && (
             <li>
-              <a href="#skills">Skills</a>
+              <a href="#skills">About Me</a>
             </li>
           )}
           {viewExperience && (
             <li>
-              <a href="#experience">Work Experiences</a>
+              <a href="#experience">Recent Publications</a>
             </li>
           )}
           {viewOpenSource && (
@@ -58,7 +56,7 @@ function Header() {
           )}
           {viewAchievement && (
             <li>
-              <a href="#achievements">Achievements</a>
+              <a href="#achievements">Service and Outreach</a>
             </li>
           )}
           {viewBlog && (
@@ -73,7 +71,7 @@ function Header() {
           )}
           {viewResume && (
             <li>
-              <a href="#resume">Resume</a>
+              <a href="https://drive.google.com/file/d/1MMBOQMgURxoFjwz90rq1cxFWDjiI9IPi/view?usp=sharing" target="_blank" rel="noopener noreferrer">CV</a>
             </li>
           )}
           <li>

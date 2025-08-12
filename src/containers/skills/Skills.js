@@ -21,7 +21,7 @@ export default function Skills() {
               <DisplayLottie animationData={codingPerson} />
             ) : (
               <img
-                alt="Man Working"
+                alt="Space telescope"
                 src={require("../../assets/images/developerActivity.svg")}
               ></img>
             )}

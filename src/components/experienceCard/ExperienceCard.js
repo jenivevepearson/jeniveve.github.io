@@ -38,15 +38,23 @@ export default function ExperienceCard({cardInfo, isDark}) {
           <h5 className="experience-text-company">{cardInfo.company}</h5>
         </div>
 
-        <img
-          crossOrigin={"anonymous"}
-          ref={imgRef}
-          className="experience-roundedimg"
-          src={cardInfo.companylogo}
-          alt={cardInfo.company}
-          onLoad={() => getColorArrays()}
-        />
+        <a 
+          href={cardInfo.link} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="experience-image-link"
+        >
+          <img
+            crossOrigin={"anonymous"}
+            ref={imgRef}
+            className="experience-roundedimg"
+            src={cardInfo.companylogo}
+            alt={cardInfo.company}
+            onLoad={() => getColorArrays()}
+          />
+        </a>
       </div>
+
       <div className="experience-text-details">
         <h5
           className={
@@ -72,9 +80,8 @@ export default function ExperienceCard({cardInfo, isDark}) {
               ? "subTitle experience-text-desc dark-mode-text"
               : "subTitle experience-text-desc"
           }
-        >
-          {cardInfo.desc}
-        </p>
+          dangerouslySetInnerHTML={{ __html: cardInfo.desc }}
+        />
         <ul>
           <GetDescBullets descBullets={cardInfo.descBullets} isDark={isDark} />
         </ul>

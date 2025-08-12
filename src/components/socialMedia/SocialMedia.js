@@ -1,6 +1,7 @@
 import React from "react";
 import "./SocialMedia.scss";
 import {socialMediaLinks} from "../../portfolio";
+import { ReactComponent as BlueskyIcon } from '../../assets/images/Bluesky_Logo.svg';
 
 export default function socialMedia() {
   if (!socialMediaLinks.display) {
@@ -8,6 +9,18 @@ export default function socialMedia() {
   }
   return (
     <div className="social-media-div">
+     {socialMediaLinks.orcid ? (
+        <a
+          href={socialMediaLinks.orcid}
+          className="icon-button orcid"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i className="fab fa-orcid"></i>
+          <span></span>
+        </a>
+      ) : null}      
+
       {socialMediaLinks.github ? (
         <a
           href={socialMediaLinks.github}
@@ -124,6 +137,18 @@ export default function socialMedia() {
           rel="noopener noreferrer"
         >
           <i className="fab fa-kaggle"></i>
+          <span></span>
+        </a>
+      ) : null}
+
+      {socialMediaLinks.bluesky ? (
+        <a
+          href={socialMediaLinks.bluesky}
+          className="icon-button bluesky"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <BlueskyIcon className="social-icon" />
           <span></span>
         </a>
       ) : null}

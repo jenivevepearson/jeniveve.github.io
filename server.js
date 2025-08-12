@@ -1,3 +1,5 @@
+import 'dotenv/config'
+
 const express = require("express");
 const axios = require("axios");
 const cors = require("cors"); // Import the cors package
@@ -12,7 +14,7 @@ app.use(express.json());
 app.get("/api/nasa-ads", async (req, res) => {
   try {
     const orcid = "0000-0002-0744-0047";
-    const apiKey = "EmhD3mwdfaIcTDz9xIEM9Jn0drRn4QsRW7tKsDQv";
+    const apiKey = process.env.API_KEY;
 
     const allDocs = [];
     

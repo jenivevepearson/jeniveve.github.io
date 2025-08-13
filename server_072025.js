@@ -18,18 +18,21 @@ app.get("/api/nasa-ads", async (req, res) => {
 
     const response = await axios.get(url, {
       headers: {
-        Authorization: `Bearer ${apiKey}`,
-      },
+        Authorization: `Bearer ${apiKey}`
+      }
     });
 
     console.log("Response status:", response.status);
-    console.log("Number of docs returned:", response.data.response?.docs?.length || 0);
+    console.log(
+      "Number of docs returned:",
+      response.data.response?.docs?.length || 0
+    );
     console.log("Total number found:", response.data.response?.numFound || 0);
 
     res.json(response.data);
   } catch (error) {
     console.error("Proxy Error:", error);
-    res.status(500).json({ error: "Failed to fetch data from NASA ADS" });
+    res.status(500).json({error: "Failed to fetch data from NASA ADS"});
   }
 });
 

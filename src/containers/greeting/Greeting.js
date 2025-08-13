@@ -36,12 +36,12 @@ export default function Greeting() {
               </p>
               <div id="resume" className="empty-div"></div>
               <SocialMedia />
-              <div className="button-greeting-div">
-              </div>
+              <div className="button-greeting-div"></div>
             </div>
           </div>
           <div className="greeting-image-div">
-            {<img
+            {
+              <img
                 alt="Jeniveve Pearson"
                 src={require("../../assets/images/Headshot_boom.png")}
               ></img>

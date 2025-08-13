@@ -38,9 +38,9 @@ export default function ExperienceCard({cardInfo, isDark}) {
           <h5 className="experience-text-company">{cardInfo.company}</h5>
         </div>
 
-        <a 
-          href={cardInfo.link} 
-          target="_blank" 
+        <a
+          href={cardInfo.link}
+          target="_blank"
           rel="noopener noreferrer"
           className="experience-image-link"
         >
@@ -80,7 +80,7 @@ export default function ExperienceCard({cardInfo, isDark}) {
               ? "subTitle experience-text-desc dark-mode-text"
               : "subTitle experience-text-desc"
           }
-          dangerouslySetInnerHTML={{ __html: cardInfo.desc }}
+          dangerouslySetInnerHTML={{__html: cardInfo.desc}}
         />
         <ul>
           <GetDescBullets descBullets={cardInfo.descBullets} isDark={isDark} />

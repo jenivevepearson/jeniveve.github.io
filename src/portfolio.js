@@ -44,8 +44,11 @@ const socialMediaLinks = {
 
 const skillsSection = {
   title: "About Me",
-  subTitle: "I am a graduate student in Astronomy and Astrophysics at the University of Arizona’s Steward Observatory working with Professor David Sand. My work focuses on understanding the processes through which stars die, with a focus on the study of nearby supernovae.",
-  skills: [("As part of this work, I utilize a robust network of ground and space-based observatories to observe supernovae immediately following explosion and uncover clues about the final years of their progenitors’ lives. Additionally, I am interested in using observational approaches to understand how and when supernovae occur and the extent to which they have shaped our Universe.")],
+  subTitle:
+    "I am a graduate student in Astronomy and Astrophysics at the University of Arizona’s Steward Observatory working with Professor David Sand. My work focuses on understanding the processes through which stars die, with a focus on the study of nearby supernovae.",
+  skills: [
+    "As part of this work, I utilize a robust network of ground and space-based observatories to observe supernovae immediately following explosion and uncover clues about the final years of their progenitors’ lives. Additionally, I am interested in using observational approaches to understand how and when supernovae occur and the extent to which they have shaped our Universe."
+  ],
 
   /* Make Sure to include correct Font Awesome Classname to view your icon
 https://fontawesome.com/icons?d=gallery */
@@ -102,23 +105,22 @@ const techStack = {
   displayCodersrank: false // Set true to display codersrank badges section need to changes your username in src/containers/skillProgress/skillProgress.js:17:62, defaults to false
 };
 
-
 // Work experience section
 const workExperiences = {
   display: true,
   experience: async () => {
     try {
       const response = await fetch(`/api/nasa-ads`);
-      
+
       console.log("Response status:", response.status);
       console.log("Response ok:", response.ok);
-      
+
       if (!response.ok) {
         const errorText = await response.text();
         console.error("API Error Response:", errorText);
         throw new Error(`API request failed: ${response.status}`);
       }
-      
+
       const data = await response.json();
       console.log("Full API Response:", data);
       console.log("Number of docs:", data.response?.docs?.length || 0);
@@ -131,12 +133,12 @@ const workExperiences = {
 
       // Filter and map papers
       const filteredPapers = data.response.docs
-        .filter((paper) => {
+        .filter(paper => {
           const authors = paper.author || [];
           console.log("Paper authors:", authors);
-          const hasMatch = authors.slice(0, 2).some((author) =>
-            author.toLowerCase().includes("pearson")
-          );
+          const hasMatch = authors
+            .slice(0, 2)
+            .some(author => author.toLowerCase().includes("pearson"));
           console.log("Has Pearson match:", hasMatch);
           return hasMatch;
         })
@@ -145,160 +147,160 @@ const workExperiences = {
       console.log("Filtered Papers count:", filteredPapers.length);
       console.log("Filtered Papers:", filteredPapers);
 
-      const mappedData = filteredPapers.map((paper) => {
-      // Handle title - ensure it's a string
-      let title = "Untitled Paper";
-      if (paper.title) {
-        if (Array.isArray(paper.title)) {
+      const mappedData = filteredPapers.map(paper => {
+        // Handle title - ensure it's a string
+        let title = "Untitled Paper";
+        if (paper.title) {
+          if (Array.isArray(paper.title)) {
             title = paper.title[0] || "Untitled Paper";
           } else {
             title = paper.title;
           }
         }
-  
-      // Function to convert LaTeX formatting to plain text/HTML
-      const formatLatexText = (text) => {
-        if (!text || typeof text !== 'string') return text;
-  
-        let formatted = text;
-  
-        // Remove common LaTeX commands and replace with plain text equivalents
-        formatted = formatted
-          // Remove math mode delimiters first
-          .replace(/\$\$([^$]+)\$\$/g, '$1')
-          .replace(/\$([^$]+)\$/g, '$1')
-    
-          // Handle Unicode escapes and special symbols
-          .replace(/x02013/g, '-') // dash
-          .replace(/\\odot/g, '⊙') // LaTeX sun symbol
-          .replace(/\\sun/g, '⊙') // Alternative sun symbol
 
-          // Clean up malformed braces - remove extra nested braces
-          .replace(/\{\{([^}]+)\}\}/g, '{$1}') // {{content}} -> {content}
-          .replace(/\{\s*\{([^}]+)\}\s*\}/g, '{$1}') // { {content} } -> {content}
+        // Function to convert LaTeX formatting to plain text/HTML
+        const formatLatexText = text => {
+          if (!text || typeof text !== "string") return text;
 
-          // Convert superscripts - handle both ^{...} and ^x formats
-          .replace(/\^{([^}]+)}/g, '<sup>$1</sup>')
-          .replace(/\^([a-zA-Z0-9+\-*/=().,!?])/g, '<sup>$1</sup>')
-    
-          // Convert subscripts - handle both _{...} and _x formats  
-          .replace(/_{([^}]+)}/g, '<sub>$1</sub>')
-          .replace(/_([a-zA-Z0-9+\-*/=().,!?])/g, '<sub>$1</sub>')
-    
-          // Convert text formatting
-          .replace(/\\textit\{([^}]+)\}/g, '<em>$1</em>')
-          .replace(/\\emph\{([^}]+)\}/g, '<em>$1</em>')
-          .replace(/\\textbf\{([^}]+)\}/g, '<strong>$1</strong>')
-    
-          // Convert common Greek letters to HTML entities or Unicode
-          .replace(/\\alpha/g, '&alpha;')
-          .replace(/\\beta/g, '&beta;')
-          .replace(/\\gamma/g, '&gamma;')
-          .replace(/\\delta/g, '&delta;')
-          .replace(/\\epsilon/g, '&epsilon;')
-          .replace(/\\theta/g, '&theta;')
-          .replace(/\\lambda/g, '&lambda;')
-          .replace(/\\mu/g, '&mu;')
-          .replace(/\\nu/g, '&nu;')
-          .replace(/\\pi/g, '&pi;')
-          .replace(/\\rho/g, '&rho;')
-          .replace(/\\sigma/g, '&sigma;')
-          .replace(/\\tau/g, '&tau;')
-          .replace(/\\phi/g, '&phi;')
-          .replace(/\\chi/g, '&chi;')
-          .replace(/\\psi/g, '&psi;')
-          .replace(/\\omega/g, '&omega;')
-          .replace(/\\Gamma/g, '&Gamma;')
-          .replace(/\\Delta/g, '&Delta;')
-          .replace(/\\Theta/g, '&Theta;')
-          .replace(/\\Lambda/g, '&Lambda;')
-          .replace(/\\Pi/g, '&Pi;')
-          .replace(/\\Sigma/g, '&Sigma;')
-          .replace(/\\Phi/g, '&Phi;')
-          .replace(/\\Psi/g, '&Psi;')
-          .replace(/\\Omega/g, '&Omega;')
-    
-          // Convert mathematical symbols
-          .replace(/\\times/g, '&times;')
-          .replace(/\\pm/g, '&plusmn;')
-          .replace(/\\cdot/g, '&middot;')
-          .replace(/\\leq/g, '&le;')
-          .replace(/\\geq/g, '&ge;')
-          .replace(/\\neq/g, '&ne;')
-          .replace(/\\approx/g, '&asymp;')
-          .replace(/\\sim/g, '~')
-          .replace(/\\infty/g, '&infin;')
+          let formatted = text;
 
-          // Handle spacing commands
-          .replace(/\\,/g, ' ') // thin space
-          .replace(/\\;/g, ' ') // medium space
-          .replace(/\\!/g, '') // negative thin space
-    
-          // Remove citations and references
-          .replace(/\\cite\{[^}]+\}/g, '')
-          .replace(/\\citep?\{[^}]+\}/g, '')
-          .replace(/\\ref\{[^}]+\}/g, '')
-    
-          // Remove other LaTeX commands but keep content
-          .replace(/\\[a-zA-Z]+\{([^}]*)\}/g, '$1')
-          .replace(/\\[a-zA-Z]+/g, '')
-    
-          // Clean up spacing
-          .replace(/\{([^}]*)\}/g, '$1') // Remove any remaining braces
-          .replace(/\s+/g, ' ')
-          .replace(/^\s+|\s+$/g, '')
-          .replace(/\{([a-zA-Z0-9\-+*/.,:;!?=<>])\}/g, '$1'); // {x} -> x
-  
-        return formatted;
-      };
+          // Remove common LaTeX commands and replace with plain text equivalents
+          formatted = formatted
+            // Remove math mode delimiters first
+            .replace(/\$\$([^$]+)\$\$/g, "$1")
+            .replace(/\$([^$]+)\$/g, "$1")
 
-      // Handle abstract - ensure it's a string
-      let abstract = "No abstract available";
-      if (paper.abstract) {
-        if (Array.isArray(paper.abstract)) {
+            // Handle Unicode escapes and special symbols
+            .replace(/x02013/g, "-") // dash
+            .replace(/\\odot/g, "⊙") // LaTeX sun symbol
+            .replace(/\\sun/g, "⊙") // Alternative sun symbol
+
+            // Clean up malformed braces - remove extra nested braces
+            .replace(/\{\{([^}]+)\}\}/g, "{$1}") // {{content}} -> {content}
+            .replace(/\{\s*\{([^}]+)\}\s*\}/g, "{$1}") // { {content} } -> {content}
+
+            // Convert superscripts - handle both ^{...} and ^x formats
+            .replace(/\^{([^}]+)}/g, "<sup>$1</sup>")
+            .replace(/\^([a-zA-Z0-9+\-*/=().,!?])/g, "<sup>$1</sup>")
+
+            // Convert subscripts - handle both _{...} and _x formats
+            .replace(/_{([^}]+)}/g, "<sub>$1</sub>")
+            .replace(/_([a-zA-Z0-9+\-*/=().,!?])/g, "<sub>$1</sub>")
+
+            // Convert text formatting
+            .replace(/\\textit\{([^}]+)\}/g, "<em>$1</em>")
+            .replace(/\\emph\{([^}]+)\}/g, "<em>$1</em>")
+            .replace(/\\textbf\{([^}]+)\}/g, "<strong>$1</strong>")
+
+            // Convert common Greek letters to HTML entities or Unicode
+            .replace(/\\alpha/g, "&alpha;")
+            .replace(/\\beta/g, "&beta;")
+            .replace(/\\gamma/g, "&gamma;")
+            .replace(/\\delta/g, "&delta;")
+            .replace(/\\epsilon/g, "&epsilon;")
+            .replace(/\\theta/g, "&theta;")
+            .replace(/\\lambda/g, "&lambda;")
+            .replace(/\\mu/g, "&mu;")
+            .replace(/\\nu/g, "&nu;")
+            .replace(/\\pi/g, "&pi;")
+            .replace(/\\rho/g, "&rho;")
+            .replace(/\\sigma/g, "&sigma;")
+            .replace(/\\tau/g, "&tau;")
+            .replace(/\\phi/g, "&phi;")
+            .replace(/\\chi/g, "&chi;")
+            .replace(/\\psi/g, "&psi;")
+            .replace(/\\omega/g, "&omega;")
+            .replace(/\\Gamma/g, "&Gamma;")
+            .replace(/\\Delta/g, "&Delta;")
+            .replace(/\\Theta/g, "&Theta;")
+            .replace(/\\Lambda/g, "&Lambda;")
+            .replace(/\\Pi/g, "&Pi;")
+            .replace(/\\Sigma/g, "&Sigma;")
+            .replace(/\\Phi/g, "&Phi;")
+            .replace(/\\Psi/g, "&Psi;")
+            .replace(/\\Omega/g, "&Omega;")
+
+            // Convert mathematical symbols
+            .replace(/\\times/g, "&times;")
+            .replace(/\\pm/g, "&plusmn;")
+            .replace(/\\cdot/g, "&middot;")
+            .replace(/\\leq/g, "&le;")
+            .replace(/\\geq/g, "&ge;")
+            .replace(/\\neq/g, "&ne;")
+            .replace(/\\approx/g, "&asymp;")
+            .replace(/\\sim/g, "~")
+            .replace(/\\infty/g, "&infin;")
+
+            // Handle spacing commands
+            .replace(/\\,/g, " ") // thin space
+            .replace(/\\;/g, " ") // medium space
+            .replace(/\\!/g, "") // negative thin space
+
+            // Remove citations and references
+            .replace(/\\cite\{[^}]+\}/g, "")
+            .replace(/\\citep?\{[^}]+\}/g, "")
+            .replace(/\\ref\{[^}]+\}/g, "")
+
+            // Remove other LaTeX commands but keep content
+            .replace(/\\[a-zA-Z]+\{([^}]*)\}/g, "$1")
+            .replace(/\\[a-zA-Z]+/g, "")
+
+            // Clean up spacing
+            .replace(/\{([^}]*)\}/g, "$1") // Remove any remaining braces
+            .replace(/\s+/g, " ")
+            .replace(/^\s+|\s+$/g, "")
+            .replace(/\{([a-zA-Z0-9\-+*/.,:;!?=<>])\}/g, "$1"); // {x} -> x
+
+          return formatted;
+        };
+
+        // Handle abstract - ensure it's a string
+        let abstract = "No abstract available";
+        if (paper.abstract) {
+          if (Array.isArray(paper.abstract)) {
             abstract = paper.abstract[0] || "No abstract available";
           } else {
             abstract = paper.abstract;
           }
-        // Apply LaTeX formatting conversion
+          // Apply LaTeX formatting conversion
           abstract = formatLatexText(abstract);
-      }
+        }
 
-      // Extract year from pubdate (e.g., "2023-01-01" -> "2023")
-      let year = "";
-      if (paper.pubdate) {
-        const yearMatch = paper.pubdate.match(/(\d{4})/);
-        year = yearMatch ? yearMatch[1] : "";
-      }
-  
-      console.log("Title:", title);
-      console.log("Abstract preview:", abstract.substring(0, 50) + "...");
-  
-      return {
-        role: "",
-        company: title,
-        companylogo: require("./assets/images/nasa-ads-logo.jpg"),
-        date: paper.author && paper.author.length > 0
-          ? [
-              (paper.author.length <= 4
-                ? paper.author.join(", ")
-                : paper.author.slice(0, 3).join(", ") + ", et al."
-                ) + (year ? ` (${year})` : "")
-            ]
-          : [`Unknown Authors${year ? ` (${year})` : ""}`],
-        desc: abstract,
-        link: `https://ui.adsabs.harvard.edu/abs/${paper.bibcode}/abstract`,
-      };
-    });
+        // Extract year from pubdate (e.g., "2023-01-01" -> "2023")
+        let year = "";
+        if (paper.pubdate) {
+          const yearMatch = paper.pubdate.match(/(\d{4})/);
+          year = yearMatch ? yearMatch[1] : "";
+        }
+
+        console.log("Title:", title);
+        console.log("Abstract preview:", abstract.substring(0, 50) + "...");
+
+        return {
+          role: "",
+          company: title,
+          companylogo: require("./assets/images/nasa-ads-logo.jpg"),
+          date:
+            paper.author && paper.author.length > 0
+              ? [
+                  (paper.author.length <= 4
+                    ? paper.author.join(", ")
+                    : paper.author.slice(0, 3).join(", ") + ", et al.") +
+                    (year ? ` (${year})` : "")
+                ]
+              : [`Unknown Authors${year ? ` (${year})` : ""}`],
+          desc: abstract,
+          link: `https://ui.adsabs.harvard.edu/abs/${paper.bibcode}/abstract`
+        };
+      });
 
       console.log("Final mapped data:", mappedData);
       return mappedData;
-      
     } catch (error) {
       console.error("Error fetching papers from NASA ADS:", error);
       return [];
     }
-  },
+  }
 };
 
 /* Your Open Source Section to View Your Github Pinned Projects
@@ -350,7 +352,6 @@ const achievementSection = {
   subtitle:
     "Teaching the people about astronomy is a passion of mine. I have participated in numerous outreach programs in an effort to share just how exciting the Universe is with the general public. I have given several talks at the Tucson chapter of Astronomy on Tap, acted as a camp counselor for Astronomy Camp on Mt. Lemmon, and spoken to groups throughout Southern Arizona. Additionally, I have a particular interest in the intersection between art and science. I organize and participate in several efforts aimed at communicating science through the arts. A few of these efforts are listed below.",
 
-
   achievementsCards: [
     {
       title: "The Art of Planetary Science (TAPS)",
@@ -394,24 +395,24 @@ const achievementSection = {
           name: "Cody Fanelli's Website",
           url: "https://codyfanelli.com/"
         },
-	{
+        {
           name: "Complete Comic",
           url: "https://drive.google.com/file/d/1SDPs98-GvTguMi0bsSKCnpCq6idKo_x7/view?usp=sharing"
         }
-      
       ]
     },
 
     {
       title: "Artistic Expression of Original Research (AEOR)",
-      subtitle: "I am an artist-scientist in the Artistic Expression of Original Research project. AEOR connects scientists and artists over the course of a weekend long workshop after which artist-scientists were asked to produce art based around their original research and present them to the community in a series of free art shows.",
+      subtitle:
+        "I am an artist-scientist in the Artistic Expression of Original Research project. AEOR connects scientists and artists over the course of a weekend long workshop after which artist-scientists were asked to produce art based around their original research and present them to the community in a series of free art shows.",
       image: require("./assets/images/img_3208.jpg"),
       imageAlt: "Jeniveve showing art work at public art show",
       footerLink: [
         {
           name: "Workshop and Shows",
           url: "https://arts.arizona.edu/exhibition-brings-together-science-art-and-community-building/"
-        }//,
+        } //,
         //{name: "Publication", url: ""}
       ]
     }
@@ -485,8 +486,7 @@ const resumeSection = {
 
 const contactInfo = {
   title: "Contact Me",
-  subtitle:
-    "Prounouns: she/her/hers",
+  subtitle: "Prounouns: she/her/hers",
   //number: "Steward Observatory, University of Arizona",
   email_address: "jenivevepearson@arizona.edu"
 };

@@ -1,7 +1,7 @@
 import React from "react";
 import "./SocialMedia.scss";
 import {socialMediaLinks} from "../../portfolio";
-import { ReactComponent as BlueskyIcon } from '../../assets/images/Bluesky_Logo.svg';
+import {ReactComponent as BlueskyIcon} from "../../assets/images/Bluesky_Logo.svg";
 
 export default function socialMedia() {
   if (!socialMediaLinks.display) {
@@ -9,7 +9,7 @@ export default function socialMedia() {
   }
   return (
     <div className="social-media-div">
-     {socialMediaLinks.orcid ? (
+      {socialMediaLinks.orcid ? (
         <a
           href={socialMediaLinks.orcid}
           className="icon-button orcid"
@@ -19,7 +19,7 @@ export default function socialMedia() {
           <i className="fab fa-orcid"></i>
           <span></span>
         </a>
-      ) : null}      
+      ) : null}
 
       {socialMediaLinks.github ? (
         <a

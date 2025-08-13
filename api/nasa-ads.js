@@ -1,5 +1,5 @@
 import "dotenv/config";
-const axios = require("axios").default;
+import axios from "axios";
 
 export default async function handler(req, res) {
   try {

@@ -107,7 +107,7 @@ const workExperiences = {
   display: true,
   experience: async () => {
     try {
-      const response = await fetch("http://localhost:5001/api/nasa-ads");
+      const response = await fetch('/api/nasa-ads');
       
       console.log("Response status:", response.status);
       console.log("Response ok:", response.ok);

@@ -24,7 +24,7 @@
     "react-twitter-embed": "3.0.3",
     "sass": "^1.32.8"
   },
-  "engines":{
+  "engines": {
     "node": "22.14.0"
   },
   "scripts": {

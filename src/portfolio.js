@@ -102,12 +102,13 @@ const techStack = {
   displayCodersrank: false // Set true to display codersrank badges section need to changes your username in src/containers/skillProgress/skillProgress.js:17:62, defaults to false
 };
 
+
 // Work experience section
 const workExperiences = {
   display: true,
   experience: async () => {
     try {
-      const response = await fetch('/api/nasa-ads');
+      const response = await fetch(`/api/nasa-ads`);
       
       console.log("Response status:", response.status);
       console.log("Response ok:", response.ok);

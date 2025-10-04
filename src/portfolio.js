@@ -350,7 +350,7 @@ const bigProjects = {
 const achievementSection = {
   title: "Service and Outreach",
   subtitle:
-    "Teaching the people about astronomy is a passion of mine. I have participated in numerous outreach programs in an effort to share just how exciting the Universe is with the general public. I have given several talks at the Tucson chapter of Astronomy on Tap, acted as a camp counselor for Astronomy Camp on Mt. Lemmon, and spoken to groups throughout Southern Arizona. Additionally, I have a particular interest in the intersection between art and science. I organize and participate in several efforts aimed at communicating science through the arts. A few of these efforts are listed below.",
+    "Teaching people about astronomy is a passion of mine. I have participated in numerous outreach programs in an effort to share just how exciting the Universe is with the general public. I have given several talks at the Tucson chapter of Astronomy on Tap, acted as a camp counselor for Astronomy Camp on Mt. Lemmon, and spoken to groups throughout Southern Arizona. Additionally, I have a particular interest in the intersection between art and science. I organize and participate in several efforts aimed at communicating science through the arts. A few of these efforts are listed below.",
 
   achievementsCards: [
     {

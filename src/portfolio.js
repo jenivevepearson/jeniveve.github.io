@@ -47,7 +47,7 @@ const skillsSection = {
   subTitle:
     "I am a Postdoctoral Scholar in Astronomy and Astrophysics Department at the University of California San Deigo working with Professor Griffin Hosseinzadeh. My research focuses on understanding the processes through which stars die, with a focus on the study of nearby supernovae.",
   skills: [
-    "As part of this work, I utilize a robust network of ground and space-based observatories to observe supernovae immediately following explosion and uncover clues about the final years of their progenitors’ lives. Additionally, I am interested in using observational approaches to understand how and when supernovae occur and the extent to which they have shaped our Universe. \n I have a PhD from the University of Arizona where I worked with Professor David Sand on observational approaches to understanding the progenitors and explosions of supernovae and stellar transient phenomena."  
+    "As part of this work, I utilize a robust network of ground and space-based observatories to observe supernovae immediately following explosion and uncover clues about the final years of their progenitors’ lives. Additionally, I am interested in using observational approaches to understand how and when supernovae occur and the extent to which they have shaped our Universe.", "I have a PhD from the University of Arizona where I worked with Professor David Sand on observational approaches to understanding the progenitors and explosions of supernovae and stellar transient phenomena."  
 ],
 
   /* Make Sure to include correct Font Awesome Classname to view your icon

@@ -22,7 +22,7 @@ const illustration = {
 const greeting = {
   username: "Jeniveve Pearson",
   title: "Jeniveve Pearson",
-  subTitle: "Astronomy and Astrophysics PhD Student at University of Arizona",
+  subTitle: "Postdoctoral Scholar at University of California San Diego",
   resumeLink:
     "https://drive.google.com/file/d/1MMBOQMgURxoFjwz90rq1cxFWDjiI9IPi/view?usp=sharing", // Set to empty to hide the button
   displayGreeting: true // Set false to hide this section, defaults to true
@@ -45,10 +45,11 @@ const socialMediaLinks = {
 const skillsSection = {
   title: "About Me",
   subTitle:
-    "I am a graduate student in Astronomy and Astrophysics at the University of Arizona’s Steward Observatory working with Professor David Sand. My work focuses on understanding the processes through which stars die, with a focus on the study of nearby supernovae.",
+    "I am a Postdoctoral Scholar in Astronomy and Astrophysics Department at the University of California San Deigo working with Professor Griffin Hosseinzadeh. My research focuses on understanding the processes through which stars die, with a focus on the study of nearby supernovae.",
   skills: [
-    "As part of this work, I utilize a robust network of ground and space-based observatories to observe supernovae immediately following explosion and uncover clues about the final years of their progenitors’ lives. Additionally, I am interested in using observational approaches to understand how and when supernovae occur and the extent to which they have shaped our Universe."
-  ],
+    "As part of this work, I utilize a robust network of ground and space-based observatories to observe supernovae immediately following explosion and uncover clues about the final years of their progenitors’ lives. Additionally, I am interested in using observational approaches to understand how and when supernovae occur and the extent to which they have shaped our Universe.",
+"I have a PhD from the University of Arizona where I worked with Professor David Sand on observational approaches to understanding the progenitors and explosions of supernovae and stellar transient phenomena.  
+],
 
   /* Make Sure to include correct Font Awesome Classname to view your icon
 https://fontawesome.com/icons?d=gallery */
@@ -350,7 +351,7 @@ const bigProjects = {
 const achievementSection = {
   title: "Service and Outreach",
   subtitle:
-    "Teaching people about astronomy is a passion of mine. I have participated in numerous outreach programs in an effort to share just how exciting the Universe is with the general public. I have given several talks at the Tucson chapter of Astronomy on Tap, acted as a camp counselor for Astronomy Camp on Mt. Lemmon, and spoken to groups throughout Southern Arizona. Additionally, I have a particular interest in the intersection between art and science. I organize and participate in several efforts aimed at communicating science through the arts. A few of these efforts are listed below.",
+    "Teaching people about astronomy is a passion of mine. I have participated in numerous outreach programs in an effort to share just how exciting the Universe is with the general public. I have given several talks at the Tucson chapter of Astronomy on Tap, acted as a camp counselor for Astronomy Camp on Mt. Lemmon, and spoken to groups throughout the Southwestern United States. Additionally, I have a particular interest in the intersection between art and science. I organize and participate in several efforts aimed at communicating science through the arts. A few of these efforts are listed below.",
 
   achievementsCards: [
     {
@@ -413,7 +414,7 @@ const achievementSection = {
           name: "Workshop and Shows",
           url: "https://arts.arizona.edu/exhibition-brings-together-science-art-and-community-building/"
         } //,
-        //{name: "Publication", url: ""}
+        //{name: "Publication", url: "https://www.frontiersin.org/journals/communication/articles/10.3389/fcomm.2026.1794106/full"}
       ]
     }
   ],
